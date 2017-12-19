@@ -1,5 +1,7 @@
 FROM php:7.1-apache
 
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y unzip
+
 RUN mkdir -p web/sites/default/files/translations && \
     curl -Lo web/sites/default/files/translations/drupal-8.4.3.zh-hans.po http://ftp.drupal.org/files/translations/8.x/drupal/drupal-8.4.3.zh-hans.po && \
     mkdir -p web/libraries && \
