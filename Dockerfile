@@ -1,11 +1,8 @@
 FROM php:7.1-apache
 
-RUN curl -L -o drush.phar https://github.com/drush-ops/drush-launcher/releases/download/0.4.2/drush.phar && \
-    chmod +x drush.phar && \
-    mv drush.phar /usr/local/bin/drush && \
-    drush self-update
-
-RUN curl https://drupalconsole.com/installer -L -o drupal.phar && \
-    mv drupal.phar /usr/local/bin/drupal && \
-    chmod +x /usr/local/bin/drupal && \
-    drupal self-update
+RUN mkdir web/sites/default/files/translations && \
+    curl -Lo web/sites/default/files/translations/drupal-8.4.3.zh-hans.po http://ftp.drupal.org/files/translations/8.x/drupal/drupal-8.4.3.zh-hans.po && \
+    cd web/libraries && \
+    curl -LO https://github.com/swagger-api/swagger-ui/archive/v3.0.17.zip && \
+    unzip -d v3.0.17.zip && \
+    ln -s swagger-ui-3.0.17 swagger-ui
