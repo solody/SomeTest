@@ -7,5 +7,5 @@ RUN mkdir -p web/sites/default/files/translations && \
     mkdir -p web/libraries && \
     cd web/libraries && \
     curl -LO https://github.com/swagger-api/swagger-ui/archive/v3.0.17.zip && \
-    unzip -d v3.0.17.zip && \
+    unzip v3.0.17.zip && \
     ln -s swagger-ui-3.0.17 swagger-ui
